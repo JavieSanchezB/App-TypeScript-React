@@ -1,24 +1,47 @@
-import React from 'react';
-import logo from './logo.svg';
+import {useEffect, useState} from 'react';
 import './App.css';
+import List from './components/List'
+
+const INICIAL_STATE =[
+  {
+    nick:'dapelu',
+    subMonths: 3,
+    avatar: 'https://i.pravatar.cc/150?u=dapelu',
+    description: 'Dapelu hace de moderador un par de veces'
+
+},
+{
+  nick:'jose perez',
+  subMonths: 5,
+  avatar: 'https://i.pravatar.cc/150?u=joseperez'
+
+}
+]
+
+interface sub{
+  nick: string
+  avatar: string
+  subMonths: number
+  description?: string
+}
+
+interface AppState {
+  subs: Array<sub>
+  newSubsNumber: number
+}
 
 function App() {
+  const [subs, setSubs] = useState<AppState["subs"]>([])
+  const[newSubsNumber, setnewSubsNumber] = useState<AppState["newSubsNumber"]>(0)
+useEffect(()=>{
+  setSubs(INICIAL_STATE)
+}
+)
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+   <h1>midu Subs</h1>
+  <List subs={subs}></List>
     </div>
   );
 }
