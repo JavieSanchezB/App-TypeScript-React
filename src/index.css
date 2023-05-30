@@ -25,6 +25,13 @@ img{
   width: 50px;
 }
 
+form textarea{
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  padding: 4px 6px;
+  font-size: medium;
+}
+
 ul li{
   border-radius: 4px;
   border: 1px solid #eee;
@@ -33,4 +40,21 @@ ul li{
   max-width: 320px;
   padding: 8px 32px;
 
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+}
+
+form input{
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  padding: 4px 6px;
+  font-size: medium;
+}
+
+button{
+
+  font-size: large;
 }
